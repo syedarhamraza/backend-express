@@ -1,5 +1,5 @@
 const app = require("../../app");
-
+const fs = require("fs");
 
 exports.getAlluser = async (req, res) =>{
     res.status(200).json({
@@ -11,11 +11,10 @@ exports.getAlluser = async (req, res) =>{
 }
 
 exports.createUser = async (req, res) =>{
-    res.status(200).json({
+    const data = await  req.body;
+    res.status(201).json({
         status: 'success',
-        data: {
-            message: 'User created successfully.'
-        }
+        data,
     })
 }
 
